@@ -13,11 +13,11 @@ let randomNumbers = [];
 
    while (randomNumbers.length < 5) {
     let newNumber = randomGenerator(1, 100);
-    console.log(newNumber)
+ //   console.log(newNumber)
     randomNumbers.push(newNumber);
    }
 
-console.log(randomNumbers);
+//console.log(randomNumbers);
 
 
 //3.creare un alert che espone i 5 numeri.
@@ -36,7 +36,7 @@ function createPrompt (promptArray) {
 
     for (let i = 1; i <= 5; i++) { 
 
-        let singleNumber = parseInt(prompt(`Inserisci il ${i} numero su 5 di quelli visualizzati`));
+        let singleNumber = parseInt(prompt(`Inserisci ${i} numero su 5 di quelli visualizzati`));
         promptArray.push(singleNumber);
 
        // promptArray.push(prompt(`Inserisci il ${i} numero su 5 di quelli visualizzati`)); 
@@ -45,12 +45,28 @@ function createPrompt (promptArray) {
    return promptArray;
 }
 
-console.log(userNumbers);
+//console.log(userNumbers);
 
-//6. confrontare i 2 array di numeri : userNumbers e randomNumbers. individuare:
-//6a. quanti numeri uguali hanno
-//6b. quali sono i numeri uguali  
+//6. confrontare i 2 array di numeri : userNumbers e randomNumbers.
+//6a. quali sono i numeri uguali --> creando un array che contiene i numeri in comune (matchingNumber)
+//6b. quanti numeri uguali hanno --> contando il numero di valori che "matchingNumber" ha.
+
+let matchingNumbers = [];
 
 
+function findMatchingElement (arr1, arr2, arr3) {
 
+
+  for(var i=0 ; i<arr1.length ; ++i) {
+
+    for(var j=0 ; j<arr2.length ; ++j) {
+      if(arr1[i] == arr2[j]) {    // If element is in both the arrays
+        arr3.push(arr1[i]);        // Push to arr array
+      }
+    }
+}
+    return arr3;
+}
+
+console.log(findMatchingElement (randomNumbers, userNumbers, matchingNumbers));
 
